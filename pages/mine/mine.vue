@@ -19,7 +19,7 @@
 
 		<!-- 订单状态 -->
 		<view class="order_state">
-			<view class="order_state_list" v-for="(item,ind) in orderList" :key="ind">
+			<view class="order_state_list" v-for="(item,ind) in orderList" :key="ind" @click="toOrder(ind)">
 				<image :src="item.icon" mode=""></image>
 				<text class="list_text">{{item.name}}</text>
 			</view>
@@ -118,6 +118,13 @@
 				if (!app.globalData.loginStatus) {
 					uni.navigateTo({
 						url: '../send/send'
+					})
+				}
+			},
+			toOrder(index){
+				if(index==0){
+					uni.navigateTo({
+						url:'../order/order'
 					})
 				}
 			}

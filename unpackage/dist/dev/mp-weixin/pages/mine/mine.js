@@ -252,6 +252,13 @@ var app = getApp();var _default =
           url: '../send/send' });
 
       }
+    },
+    toOrder: function toOrder(index) {
+      if (index == 0) {
+        uni.navigateTo({
+          url: '../order/order' });
+
+      }
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

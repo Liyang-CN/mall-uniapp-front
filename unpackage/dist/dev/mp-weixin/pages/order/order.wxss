@@ -1,5 +1,5 @@
 
-.row{
+.row {
 	position: relative;
 	margin: 10rpx 20rpx;
 	height: 240rpx;
@@ -7,10 +7,10 @@
 	-webkit-border-radius: 30rpx;
 	        border-radius: 30rpx;
 }
-.imagebox{
+.imagebox {
 	position: absolute;
 	top: 10rpx;
-	left:10rpx;
+	left: 10rpx;
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: flex;
@@ -18,11 +18,11 @@
 	-webkit-align-items: center;
 	        align-items: center;
 }
-image{
+image {
 	width: 160rpx;
 	margin-left: 10rpx;
 }
-.info{
+.info {
 	position: absolute;
 	top: 180rpx;
 	right: 50rpx;
@@ -35,14 +35,14 @@ image{
 	font-size: 25rpx;
 	width: 340rpx;
 }
-.info text:nth-of-type(2){
+.info text:nth-of-type(2) {
 	color: red;
 }
-.info text:nth-of-type(3){
+.info text:nth-of-type(3) {
 	font-size: 20rpx;
 	color: #AAAAAA;
 }
-.api{
+.api {
 	line-height: 200rpx;
 	text-align: center;
 	font-size: 40rpx;

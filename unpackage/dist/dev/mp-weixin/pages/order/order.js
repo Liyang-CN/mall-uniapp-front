@@ -157,9 +157,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var app = getApp();var _require =
+
+
+
 __webpack_require__(/*! ../../utils/tip.js */ 19),isLogin = _require.isLogin,tips = _require.tips;var _default =
 {
-  components: { uniSearchBar: uniSearchBar },
+  components: {
+    uniSearchBar: uniSearchBar },
+
   data: function data() {
     return {
       orders: [],
@@ -171,7 +176,8 @@ __webpack_require__(/*! ../../utils/tip.js */ 19),isLogin = _require.isLogin,tip
   onShow: function onShow(options) {
     // 先判断是否登录
     if (!app.globalData.loginStatus) {
-      isLogin();return;
+      isLogin();
+      return;
     }
     this.userInfo = uni.getStorageSync('userInfo');
     app.globalData.header.authorization = this.userInfo.token;
@@ -182,14 +188,31 @@ __webpack_require__(/*! ../../utils/tip.js */ 19),isLogin = _require.isLogin,tip
   },
 
   methods: {
-    getOrderList: function getOrderList() {
+    getOrderList: function getOrderList() {var _this = this;
       this.$http({
         url: '/api/orderlist',
-        data: { uid: this.userInfo.uid },
+        data: {
+          uid: this.userInfo.uid },
+
         header: this.header }).
 
       then(function (res) {
-        console.log(res);
+        if (res.data.code == 200) {
+          if (res.data.list == null) {
+            _this.buffer = false;
+            return;
+          }
+          // 处理图片路径
+          var data = res.data.list;
+          data.forEach(function (item) {
+            item.child.forEach(function (item) {
+              item.img = _this.$URL + item.img;
+            });
+          });
+          _this.orders = data;
+        } else {
+          tips('请求失败，请重试！', 'none');
+        }
       });
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
