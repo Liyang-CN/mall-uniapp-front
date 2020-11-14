@@ -156,7 +156,7 @@
 					{
 						name: "商品分类",
 						icon: require("../../static/index/-shangpinfenlei-gai.png")
-					}
+					} 
 				],
 				indexGoodsCate: ['热门推荐', '上心推荐', '所有商品'], // 主页下面三个推荐商品类型导航
 				hotRecommend: [], // 热门推荐商品列表
